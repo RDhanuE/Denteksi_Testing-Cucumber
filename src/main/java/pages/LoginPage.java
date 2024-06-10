@@ -17,7 +17,7 @@ public class LoginPage extends BasePage{
         emailField.sendKeys(email);
     }
 
-    public void enterPasswrd(String password) throws InterruptedException {
+    public void enterPassword(String password) throws InterruptedException {
         WebElement passwordField = driver.findElement(loginObject.getInputPassword());
         passwordField.sendKeys(password);
         driver.findElement(loginObject.getRevealPassword()).click();
