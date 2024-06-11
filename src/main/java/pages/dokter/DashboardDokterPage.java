@@ -7,4 +7,5 @@ public class DashboardDokterPage extends BasePage {
     public DashboardDokterPage(WebDriver driver) {
         super(driver);
     }
+
 }
