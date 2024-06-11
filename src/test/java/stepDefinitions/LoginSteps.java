@@ -51,4 +51,41 @@ public class LoginSteps {
         Assertions.assertEquals(expectedURL, dokterPage.getActualURL());
     }
 
+    @When("User submits empty credentials")
+    public void submitEmptyCredentials(){
+        LoginPage loginPage = new LoginPage(Hooks.getDriver());
+        loginPage.clickLogin();
+    }
+
+    @Then("User should see an error message \"Email tidak boleh kosong\" and \"Password tidak boleh kosong\"")
+    public void seeErrorEmptyMessage(){
+        LoginPage loginPage = new LoginPage(Hooks.getDriver());
+        String expectedErrorEmailMessage = "Email tidak boleh kosong";
+        String expectedErrorPasswordMessage = "Password tidak boleh kosong";
+        String actualErrorEmailMessage = loginPage.getErrorEmptyEmailMessage();
+        String actualErrorPasswordMessage = loginPage.getErrorEmptyPasswordMessage();
+        Assertions.assertEquals(expectedErrorEmailMessage, actualErrorEmailMessage);
+        Assertions.assertEquals(expectedErrorPasswordMessage, actualErrorPasswordMessage);
+    }
+
+    @When("User submits wrong credentials")
+    public void submitWrongCredentials() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(Hooks.getDriver());
+        loginPage.enterEmail("dkoter@dokter.com");
+        loginPage.enterPassword("dater1234");
+        loginPage.clickLogin();
+    }
+
+    @Then("User should see an error message \"Email atau kata sandi salah!\"")
+    public void seeErrorWrongMessage(){
+        LoginPage loginPage = new LoginPage(Hooks.getDriver());
+        String expectedErrorMessage = "Email atau kata sandi salah!";
+        String actualErrorMessage = loginPage.getErrorWrongMessage();
+        Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
+    }
+
+
+
+
+
 }

@@ -28,4 +28,18 @@ public class LoginPage extends BasePage{
         WebElement loginButton = driver.findElement(loginObject.getSubmitButton());
         loginButton.click();
     }
+
+    public String getErrorEmptyEmailMessage() {
+        return driver.findElement(loginObject.getErrorEmptyEmailMessage()).getText();
+    }
+
+    public String getErrorEmptyPasswordMessage() {
+        return driver.findElement(loginObject.getErrorEmptyPasswordMessage()).getText();
+    }
+
+    public String getErrorWrongMessage() {
+        return driver.findElement(loginObject.getErrorWrongMessage()).getText();
+    }
+
+
 }

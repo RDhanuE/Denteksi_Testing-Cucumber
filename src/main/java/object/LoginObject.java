@@ -14,6 +14,8 @@ public class LoginObject {
     public By getInputPassword() { return By.id("password");}
     public By getRevealPassword() { return By.xpath("//*[@id=\"eye\"]");}
     public By getSubmitButton() { return  By.xpath("//*[@id=\"form-login\"]/div[3]/button");}
-
+    public By getErrorEmptyEmailMessage() { return By.id("userEmail-error");}
+    public By getErrorEmptyPasswordMessage() { return By.id("password-error");}
+    public By getErrorWrongMessage() { return By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div[2]");}
 
 }
