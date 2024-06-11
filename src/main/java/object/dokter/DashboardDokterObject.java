@@ -3,10 +3,10 @@ package object.dokter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DashboardAdminDokter {
+public class DashboardDokterObject {
     WebDriver driver;
 
-    public DashboardAdminDokter(WebDriver driver){
+    public DashboardDokterObject(WebDriver driver){
         this.driver = driver;
     }
 
