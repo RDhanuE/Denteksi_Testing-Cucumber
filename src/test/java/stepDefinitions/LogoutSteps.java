@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import pages.LoginPage;
 import pages.admin.DashboardAdminPage;
 
-public class DashBoardAdminSteps {
+public class LogoutSteps {
     @Given("User is logged in as admin")
     public void user_is_logged_in_as_admin() throws InterruptedException {
         Hooks.getDriver().get("http://127.0.0.1:8000");
