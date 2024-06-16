@@ -1,6 +1,9 @@
 Feature: User Periksa Sekarang
 
-  Scenario: User get into pemeriksaan form
-    Given User is in the dashboard page
-    When User click the button periksa
-    Then User should be redirected to form pemeriksaan
+  Scenario: User add data from pemeriksaan form
+    Given User logged in as dokter
+    And User is in the dashboard page
+    And User click the button periksa
+    And User is in the pemeriksaan page
+    When User fill the form
+    Then Pemeriksaan page should be refresh

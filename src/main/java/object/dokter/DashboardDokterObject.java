@@ -10,7 +10,17 @@ public class DashboardDokterObject {
         this.driver = driver;
     }
 
-    public By getTombolPeriksa(){ return By.id("");}
+    public By getTombolPeriksaSekarang(){ return By.id("btn-periksa");}
+
+    public By getName(){
+        return By.id("nama");
+    }
+    public By getNamaOrangtua(){
+        return By.id("nama_orangtua");
+    }
+    public By getNomorWhatsapp(){
+        return By.id("no_whatsapp");
+    }
     public By getGambar(){ return By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/img");}
 
 
