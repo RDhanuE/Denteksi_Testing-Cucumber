@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,19 +21,19 @@ public class PeriksaSekarangSteps {
         login.clickLogin();
     }
 
-    @Given("User is in the dashboard page")
+    @And("User is in the dashboard page")
     public void onTheDashboardPage(){
         String expectedURL = "http://127.0.0.1:8000/admin/dashboard";
         Assertions.assertEquals(expectedURL, Hooks.getDriver().getCurrentUrl());
     }
 
-    @Given("User click the button periksa")
+    @And("User click the button periksa")
     public void redirectToPagePeriksa(){
         dashboardDokter = new DashboardDokterPage(Hooks.getDriver());
         dashboardDokter.clickTombol();
     }
 
-    @Given("User is in the pemeriksaan page")
+    @And("User is in the pemeriksaan page")
     public void userInPagePeriksa(){
         String expectedURL = "http://127.0.0.1:8000/orangtua/anak/create";
         Assertions.assertEquals(expectedURL, Hooks.getDriver().getCurrentUrl());
@@ -41,16 +42,18 @@ public class PeriksaSekarangSteps {
     @When("User fill the form")
     public void fillPemeriksaanForm(){
         dashboardDokter = new DashboardDokterPage(Hooks.getDriver());
+        String imagePath = System.getProperty("user.dir") + "/images/0014-1-F1F.png";
+
         dashboardDokter.fillName("indah");
         dashboardDokter.fillNamaOrtu("nurdiana");
         dashboardDokter.fillNomorWhatsapp("089687349067");
-//        masih kurang isi foto
+        dashboardDokter.fillGambar(imagePath);
         dashboardDokter.clickTombol();
-
     }
 
     @Then("Pemeriksaan page should be refresh")
     public void redirectPemeriksaanForm(){
-
+        String expectedURL = "http://127.0.0.1:8000/orangtua/anak/create";
+        Assertions.assertEquals(expectedURL, Hooks.getDriver().getCurrentUrl());
     }
 }

@@ -17,7 +17,6 @@ public class LoginSteps {
 
     @Given("User is in the login page")
     public void navigateToLoginPage(){
-
         Hooks.getDriver().get("http://127.0.0.1:8000");
     }
 

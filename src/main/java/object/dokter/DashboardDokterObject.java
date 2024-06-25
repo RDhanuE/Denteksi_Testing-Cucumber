@@ -18,6 +18,9 @@ public class DashboardDokterObject {
     public By getNamaOrangtua(){
         return By.id("nama_orangtua");
     }
+    public By getGambarForm(){
+        return By.id("gambar1");
+    }
     public By getNomorWhatsapp(){
         return By.id("no_whatsapp");
     }

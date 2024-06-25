@@ -31,6 +31,11 @@ public class DashboardDokterPage extends BasePage {
         clickElement.sendKeys(nomor);
     }
 
+    public void fillGambar(String gambar){
+        WebElement fileInput = driver.findElement(dokterObject.getGambarForm());
+        fileInput.sendKeys(gambar);
+    }
+
 
 
 
