@@ -13,6 +13,10 @@ public class DashboardDokterPage extends BasePage {
         super(driver);
         dokterObject = new DashboardDokterObject(driver);
     }
+    public void navigateToRiwayatPage() {
+        WebElement navLink = driver.findElement(dokterObject.getRiwayatNavigation());
+        navLink.click();
+    }
     public void clickTombolForm(){
         WebElement clickElement = driver.findElement(dokterObject.getTombolPeriksaSekarang());
         clickElement.submit();
@@ -48,9 +52,4 @@ public class DashboardDokterPage extends BasePage {
         WebElement fileInput = driver.findElement(dokterObject.getGambarForm());
         fileInput.sendKeys(gambar);
     }
-
-
-
-
-
 }
