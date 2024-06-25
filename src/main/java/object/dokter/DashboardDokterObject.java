@@ -10,6 +10,10 @@ public class DashboardDokterObject {
         this.driver = driver;
     }
 
+    public By getRiwayatNavigation() {
+        return By.xpath("//a[@href='http://127.0.0.1:8000/orangtua/pemeriksaan/riwayat' and contains(@class, 'nav-link')]");
+    }
+
     public By getTombolPeriksaSekarang(){ return By.id("btn-periksa");}
     public By getTombolCancel(){ return By.id("btn-cancel");}
 
