@@ -30,6 +30,4 @@ public class DashboardDokterObject {
         return By.id("no_whatsapp");
     }
     public By getGambar(){ return By.xpath("/html/body/div/div/div/div/div/div/div/div/div/div/img");}
-
-
 }
