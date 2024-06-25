@@ -11,7 +11,7 @@ public class DashboardDokterObject {
     }
 
     public By getRiwayatNavigation() {
-        return By.xpath("//a[@href='http://127.0.0.1:8000/orangtua/pemeriksaan/riwayat' and contains(@class, 'nav-link')]");
+        return By.xpath("//a[@href='http://127.0.0.1:8000/orangtua/pemeriksaan/riwayat']");
     }
 
     public By getTombolPeriksaSekarang(){ return By.id("btn-periksa");}

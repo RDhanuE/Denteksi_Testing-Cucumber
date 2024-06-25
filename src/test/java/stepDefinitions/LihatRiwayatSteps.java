@@ -7,10 +7,15 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import pages.LoginPage;
 import pages.dokter.DashboardDokterPage;
+import pages.dokter.RiwayatPemeriksaanPage;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LihatRiwayatSteps {
 
     DashboardDokterPage dashboardDokter;
+    RiwayatPemeriksaanPage riwayatPemeriksaan;
 
 //    @Given("User logged in as dokter")
 //    public void loginDokter() throws InterruptedException{
@@ -29,6 +34,7 @@ public class LihatRiwayatSteps {
 
     @And("User clicks the riwayat pemeriksaan navigation")
     public void userClicksTheRiwayatPemeriksaanNavigation() {
+        dashboardDokter = new DashboardDokterPage(Hooks.getDriver());
         dashboardDokter.navigateToRiwayatPage();
     }
 
@@ -39,13 +45,18 @@ public class LihatRiwayatSteps {
     }
 
     @When("User clicks the lihat hasil button")
-    public void userClicksTheLihatHasilButton() {
-
+    public void userClicksTheLihatHasilButton() throws InterruptedException {
+        Thread.sleep(10000);
+        riwayatPemeriksaan.clickLihatHasil();
     }
 
     @Then("User is redirected to the hasil pemeriksaan page")
     public void userIsRedirectedToTheHasilPemeriksaanPage() {
-
+        String urlPattern = "http://127.0.0.1:8000/orangtua/hasil/[a-f0-9\\-]+/periksa";
+        String currentURL = Hooks.getDriver().getCurrentUrl();
+        Pattern pattern = Pattern.compile(urlPattern);
+        Matcher matcher = pattern.matcher(currentURL);
+        Assertions.assertTrue(matcher.matches());
     }
 
     @And("User sees the hasil pemeriksaan image")
