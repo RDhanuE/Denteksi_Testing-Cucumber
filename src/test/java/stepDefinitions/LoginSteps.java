@@ -22,7 +22,7 @@ public class LoginSteps {
     @Given("User is in the login page")
     public void navigateToLoginPage(){
         Hooks.getDriver().get("http://127.0.0.1:8000");
-        Hooks.test.log(Status.INFO,"Open browser at Login Page");
+        Hooks.test.log(Status.PASS,"Open browser at Login Page");
     }
 
     @When("User submit admin credentials")
@@ -31,7 +31,7 @@ public class LoginSteps {
         login.enterEmail("admin@admin.com");
         login.enterPassword("admin1234");
         login.clickLogin();
-        Hooks.test.log(Status.INFO,"User submit as admin");
+        Hooks.test.log(Status.PASS,"User submit as admin");
     }
 
     @Then("User should be redirected to admin dashboard")
@@ -39,7 +39,7 @@ public class LoginSteps {
         DashboardAdminPage adminPage = new DashboardAdminPage(Hooks.getDriver());
         String expectedURL = "http://127.0.0.1:8000/admin/dashboard";
         Assertions.assertEquals(expectedURL, adminPage.getActualURL());
-        Hooks.test.log(Status.INFO,"User get on dashboard page");
+        Hooks.test.log(Status.PASS,"User get on dashboard page");
     }
 
     @When("User submit dokter credentials")
@@ -48,6 +48,7 @@ public class LoginSteps {
         loginPage.enterEmail("dokter@dokter.com");
         loginPage.enterPassword("dokter1234");
         loginPage.clickLogin();
+        Hooks.test.log(Status.PASS,"User submit dokter account");
     }
 
     @Then("User should be redirected to dokter dashboard")
@@ -55,12 +56,14 @@ public class LoginSteps {
         DashboardDokterPage dokterPage = new DashboardDokterPage(Hooks.getDriver());
         String  expectedURL = "http://127.0.0.1:8000/orangtua/dashboard";
         Assertions.assertEquals(expectedURL, dokterPage.getActualURL());
+        Hooks.test.log(Status.PASS,"User redirect to dokter dashboard page");
     }
 
     @When("User submits empty credentials")
     public void submitEmptyCredentials(){
         LoginPage loginPage = new LoginPage(Hooks.getDriver());
         loginPage.clickLogin();
+        Hooks.test.log(Status.PASS,"User submit credential");
     }
 
     @Then("User should see an error message \"Email tidak boleh kosong\" and \"Password tidak boleh kosong\"")
@@ -72,6 +75,7 @@ public class LoginSteps {
         String actualErrorPasswordMessage = loginPage.getErrorEmptyPasswordMessage();
         Assertions.assertEquals(expectedErrorEmailMessage, actualErrorEmailMessage);
         Assertions.assertEquals(expectedErrorPasswordMessage, actualErrorPasswordMessage);
+        Hooks.test.log(Status.PASS,"User see error message");
     }
 
     @When("User submits wrong credentials")
@@ -80,6 +84,7 @@ public class LoginSteps {
         loginPage.enterEmail("dkoter@dokter.com");
         loginPage.enterPassword("dater1234");
         loginPage.clickLogin();
+        Hooks.test.log(Status.PASS,"User submit wrong credential");
     }
 
     @Then("User should see an error message \"Email atau kata sandi salah!\"")
@@ -88,6 +93,7 @@ public class LoginSteps {
         String expectedErrorMessage = "Email atau kata sandi salah!";
         String actualErrorMessage = loginPage.getErrorWrongMessage();
         Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
+        Hooks.test.log(Status.PASS,"User see error message");
     }
 
 

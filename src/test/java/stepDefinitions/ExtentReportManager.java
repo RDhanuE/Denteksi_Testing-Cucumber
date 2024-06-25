@@ -19,7 +19,6 @@ public class ExtentReportManager {
         extent.attachReporter(sparkReporter);
         extent.setSystemInfo("OS", System.getProperty("os.name"));
         extent.setSystemInfo("Browser", "Edge"); // Change this to your browser
-
         return extent;
     }
 }
