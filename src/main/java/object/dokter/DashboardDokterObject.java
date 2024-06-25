@@ -11,6 +11,11 @@ public class DashboardDokterObject {
     }
 
     public By getTombolPeriksaSekarang(){ return By.id("btn-periksa");}
+    public By getTombolCancel(){ return By.id("btn-cancel");}
+
+    public By getErrorMessage(){
+        return By.xpath("//*[text()='Nama wajib diisi']");
+    }
 
     public By getName(){
         return By.id("nama");

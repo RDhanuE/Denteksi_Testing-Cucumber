@@ -5,4 +5,3 @@ Feature: User Feature in dashBoard admin page
     And User is in the admin dashboard page
     When User press the logout button
     Then User will be redirected to login page
-

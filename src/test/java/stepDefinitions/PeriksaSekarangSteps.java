@@ -23,14 +23,14 @@ public class PeriksaSekarangSteps {
 
     @And("User is in the dashboard page")
     public void onTheDashboardPage(){
-        String expectedURL = "http://127.0.0.1:8000/admin/dashboard";
+        String expectedURL = "http://127.0.0.1:8000/orangtua/dashboard";
         Assertions.assertEquals(expectedURL, Hooks.getDriver().getCurrentUrl());
     }
 
     @And("User click the button periksa")
     public void redirectToPagePeriksa(){
         dashboardDokter = new DashboardDokterPage(Hooks.getDriver());
-        dashboardDokter.clickTombol();
+        dashboardDokter.clickTombolDepan();
     }
 
     @And("User is in the pemeriksaan page")
@@ -48,12 +48,42 @@ public class PeriksaSekarangSteps {
         dashboardDokter.fillNamaOrtu("nurdiana");
         dashboardDokter.fillNomorWhatsapp("089687349067");
         dashboardDokter.fillGambar(imagePath);
-        dashboardDokter.clickTombol();
+        dashboardDokter.clickTombolForm();
     }
+
+    @When("User fill form except name")
+    public void userFillFormExceptName(){
+        String imagePath = System.getProperty("user.dir") + "/images/0014-1-F1F.png";
+        dashboardDokter.fillNamaOrtu("nurdiana");
+        dashboardDokter.fillNomorWhatsapp("089687349067");
+        dashboardDokter.fillGambar(imagePath);
+        dashboardDokter.clickTombolForm();
+    }
+
+
+    @Then("Field shows error message")
+    public void showsErrorMessageOnField(){
+        Assertions.assertTrue(dashboardDokter.checkErrorMessage());
+    }
+
+
+    @When("User click cancel")
+    public void clickCancelPemeriksaan(){
+        dashboardDokter = new DashboardDokterPage(Hooks.getDriver());
+        dashboardDokter.clickTombolCancel();
+    }
+
+    @Then("Redirect to dahsboard page")
+    public void checkDashboardPage(){
+        String expectedURL = "http://127.0.0.1:8000/orangtua/dashboard";
+        Assertions.assertEquals(expectedURL, Hooks.getDriver().getCurrentUrl());
+    }
+
+
 
     @Then("Pemeriksaan page should be refresh")
     public void redirectPemeriksaanForm(){
-        String expectedURL = "http://127.0.0.1:8000/orangtua/anak/create";
+        String expectedURL = "http://127.0.0.1:8000/orangtua/anak/store";
         Assertions.assertEquals(expectedURL, Hooks.getDriver().getCurrentUrl());
     }
 }
