@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import com.aventstack.extentreports.Status;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -12,12 +13,16 @@ import pages.LoginPage;
 import pages.admin.DashboardAdminPage;
 import pages.dokter.DashboardDokterPage;
 
+import static stepDefinitions.Hooks.extent;
+
+
 public class LoginSteps {
 
 
     @Given("User is in the login page")
     public void navigateToLoginPage(){
         Hooks.getDriver().get("http://127.0.0.1:8000");
+        Hooks.test.log(Status.INFO,"Open browser at Login Page");
     }
 
     @When("User submit admin credentials")
@@ -26,6 +31,7 @@ public class LoginSteps {
         login.enterEmail("admin@admin.com");
         login.enterPassword("admin1234");
         login.clickLogin();
+        Hooks.test.log(Status.INFO,"User submit as admin");
     }
 
     @Then("User should be redirected to admin dashboard")
@@ -33,6 +39,7 @@ public class LoginSteps {
         DashboardAdminPage adminPage = new DashboardAdminPage(Hooks.getDriver());
         String expectedURL = "http://127.0.0.1:8000/admin/dashboard";
         Assertions.assertEquals(expectedURL, adminPage.getActualURL());
+        Hooks.test.log(Status.INFO,"User get on dashboard page");
     }
 
     @When("User submit dokter credentials")
