@@ -1,6 +1,8 @@
 package pages.admin;
 
+import io.cucumber.messages.types.Hook;
 import object.admin.DashboardAdminObject;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
@@ -20,10 +22,12 @@ public class DashboardAdminPage extends BasePage {
         profileLogout.click();
     }
 
-
-
-
-
-
+    public void navigateToDokterPage() throws InterruptedException {
+        WebElement dataPengguna = driver.findElement(dashboardAdminObject.getDataPenggunaMenu());
+        dataPengguna.click();
+        Thread.sleep(1000);
+        WebElement menuDokter = driver.findElement(dashboardAdminObject.getDokterLink());
+        menuDokter.click();
+    }
 
 }

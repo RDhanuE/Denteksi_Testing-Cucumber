@@ -12,6 +12,6 @@ public class RiwayatPemeriksaanObject {
     }
 
     public By getLihatHasilButton() {
-        return By.xpath("//a[contains(text(), 'Lihat Hasil')]");
+        return By.xpath("//*[@id=\"table-gigi\"]/tbody/tr[3]/td[4]/a[1]");
     }
 }

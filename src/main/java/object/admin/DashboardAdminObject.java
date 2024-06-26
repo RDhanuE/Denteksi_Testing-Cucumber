@@ -13,9 +13,9 @@ public class DashboardAdminObject {
     public By getLogo(){return By.xpath("/html/body/div/nav/div[1]/a/img");}
     public By getBurgerButton(){return By.xpath("/html/body/div/nav/div[1]/div");}
     public By getDashboardMenu(){return By.xpath("/html/body/div/nav/div[2]/ul/li[2]/a");}
-    public By getDataPenggunaMenu(){return By.xpath("/html/body/div/nav/div[2]/ul/li[2]/a");}
+    public By getDataPenggunaMenu(){return By.xpath("/html/body/div/nav/div[2]/ul/li[3]/a");}
     public By getAdminLink(){return By.linkText("Admin");}
-    public By getDokterLink(){return By.linkText("Dokter");}
+    public By getDokterLink(){return By.xpath("//*[@id=\"data-pengguna\"]/ul/li[2]/a");}
     public By getPasienLink(){return By.linkText("Pasien");}
     public By getDashboardData(){return By.className("card");}
     public By getNotificationButton(){return By.id("notificationDropdown");}

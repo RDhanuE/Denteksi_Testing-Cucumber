@@ -14,6 +14,7 @@ public class DashboardDokterObject {
         return By.xpath("//a[@href='http://127.0.0.1:8000/orangtua/pemeriksaan/riwayat']");
     }
 
+    public By getTombolPeriksaDepan() { return By.xpath("/html/body/div/div/div/div/div/div/div/div[1]/a"); }
     public By getTombolPeriksaSekarang(){ return By.id("btn-periksa");}
     public By getTombolCancel(){ return By.id("btn-cancel");}
 

@@ -96,7 +96,7 @@ public class PeriksaSekarangSteps {
 
     @Then("Pemeriksaan page should be refresh")
     public void redirectPemeriksaanForm(){
-        String expectedURL = "http://127.0.0.1:8000/orangtua/anak/store";
+        String expectedURL = "http://127.0.0.1:8000/orangtua/anak/create";
         Assertions.assertEquals(expectedURL, Hooks.getDriver().getCurrentUrl());
         Hooks.test1.log(Status.PASS,"Pemeriksaan page refreshed");
     }

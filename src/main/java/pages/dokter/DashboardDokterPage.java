@@ -22,7 +22,7 @@ public class DashboardDokterPage extends BasePage {
         clickElement.submit();
     }
     public void clickTombolDepan(){
-        WebElement clickElement = driver.findElement(dokterObject.getTombolPeriksaSekarang());
+        WebElement clickElement = driver.findElement(dokterObject.getTombolPeriksaDepan());
         clickElement.click();
     }
     public void clickTombolCancel(){
