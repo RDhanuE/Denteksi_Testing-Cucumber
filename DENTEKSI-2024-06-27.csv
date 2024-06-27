@@ -1,0 +1,3 @@
+"id","title","test case id","author","assignee","actual result","status","milestone","severity","external issues","attachments","tags"
+"11","Tambah data dengan data pasien yang sudah ada","37","Testing Denteksi","Unassigned","Pasien tidak ditemukan","Open","","Major","","https://d2cxucsjd6xvsd.cloudfront.net/public/team/a7383ce8eafe6da1089c858a5ba191856a68a2da/attachment/a0f0f6cd1f2865b5ee6c95c2ef6243cd80a1f0a5/image.png",""
+"10","Membuka dan menambahkan foto menggunakan kamera HP","35","Testing Denteksi","Unassigned","Hanya bisa menambahkan foto dengan upload dari storage","Open","","Major","","https://d2cxucsjd6xvsd.cloudfront.net/public/team/a7383ce8eafe6da1089c858a5ba191856a68a2da/attachment/b57c1683abd4a7a6f7b75ec17ee059e504feec99/image.png",""
